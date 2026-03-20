@@ -1,0 +1,67 @@
+[2026-03-19 00:09:57.678] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:09:57.682] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:09:57.682] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:09:57.704] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:09:57.913] [info] Bar configured (width: 1440, height: 28) for output: eDP-1
+[2026-03-19 00:11:16.089] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:11:16.091] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:11:16.091] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:11:16.103] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:11:16.281] [info] Bar configured (width: 1440, height: 28) for output: eDP-1
+[2026-03-19 00:16:39.436] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:16:39.439] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:16:39.439] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:16:39.452] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:16:39.646] [info] Bar configured (width: 1440, height: 28) for output: eDP-1
+[2026-03-19 00:17:22.991] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:17:22.993] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:17:22.993] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:17:23.006] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:17:23.200] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-19 00:17:49.907] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:17:49.909] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:17:49.909] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:17:49.922] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:17:50.118] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-19 00:19:51.647] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-19 00:19:51.649] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-19 00:19:51.649] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-19 00:19:51.662] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-19 00:19:51.852] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-18 23:26:43.201] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-18 23:26:43.204] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-18 23:26:43.204] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-18 23:26:43.216] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-18 23:26:43.412] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-18 23:26:55.830] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-18 23:26:55.832] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-18 23:26:55.832] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-18 23:26:55.845] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-18 23:26:56.041] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-18 23:27:37.089] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-18 23:27:37.091] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-18 23:27:37.091] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-18 23:27:37.103] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-18 23:27:37.295] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-18 23:29:43.350] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-18 23:29:43.352] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-18 23:29:43.352] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-18 23:29:43.364] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-18 23:29:43.557] [info] Bar configured (width: 1440, height: 23) for output: eDP-1
+[2026-03-18 23:30:35.778] [info] Using configuration file /home/jc/.config/waybar/config
+[2026-03-18 23:30:35.781] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2026-03-18 23:30:35.781] [info] Using CSS file /home/jc/.config/waybar/style.css
+[2026-03-18 23:30:35.796] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+Discharging
+[2026-03-18 23:30:36.001] [info] Bar configured (width: 1440, height: 27) for output: eDP-1
+Gdk-Message: 23:30:43.069: Error reading events from display: Broken pipe
