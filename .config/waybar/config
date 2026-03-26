@@ -7,7 +7,8 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/right-arrow-dark"
+		"custom/right-arrow-dark",
+		"custom/power"
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -120,5 +121,11 @@
 	},
 	"tray": {
 		"icon-size": 16
+	},
+	"custom/power": {
+    		"format": "⏻",
+    		"on-click": "wlogout",
+    		"tooltip": false
 	}
+
 }

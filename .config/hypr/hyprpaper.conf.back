@@ -1,0 +1,13 @@
+wallpaper {
+    monitor = eDP-1,DVI-I-1
+    path = ~/pictures/wallpaper2.jpg
+    fit_mode = cover
+}
+
+wallpaper {
+    monitor = DVI-I-1
+    path = ~/pictures/wallpaper2.jpg
+    fit_mode = cover
+}
+
+splash = false
