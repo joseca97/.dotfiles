@@ -108,8 +108,9 @@ export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 alias hypr-config="vim /home/jc/.config/hypr/hyprland.conf"
 alias hypr-config-paper="vim /home/jc/.config/hypr/hyprpaper.conf"
-
 alias wb-config="vim /home/jc/.config/waybar"
+
+alias vim-config="vim /home/jc/.config/nvim/"
 
 alias gs="git status"
 alias gmm="git commit -m"

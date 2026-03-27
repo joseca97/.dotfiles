@@ -8,7 +8,9 @@
 	"modules-left": [
 		"sway/workspaces",
 		"custom/right-arrow-dark",
-		"custom/power"
+		"custom/power",
+		"custom/right-arrow-dark",
+		"cffi/mediaplayer"
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -56,6 +58,24 @@
 	"custom/right-arrow-light": {
 		"format": "",
 		"tooltip": false
+	},
+
+	"cffi/mediaplayer": {
+		// Path to the compiled dynamic library file
+		"module_path": "/home/jc/.config/waybar/scripts/waybar_mediaplayer.so",
+		"scroll-title": true,
+		"scroll-interval": 200,
+		"scroll-before-timeout":5,
+		"title-max-width": 200,
+		"scroll-step": 2,
+		"tooltip": true,
+		"tooltip-image-width": 300,
+		"tooltip-image-height": 300,
+		"btn-play-icon": "",
+		"btn-pause-icon": "",
+		"btn-prev-icon": "",
+		"btn-next-icon": "",
+		"ignored-players": "playerctl"
 	},
 
 	"sway/workspaces": {
