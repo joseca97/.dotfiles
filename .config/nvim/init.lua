@@ -33,6 +33,8 @@ vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 -- Enable break indent
 vim.o.breakindent = true
 
+vim.o.tabstop = 4
+
 -- Enable undo/redo changes even after closing and reopening a file
 vim.o.undofile = true
 
@@ -518,7 +520,7 @@ require('lazy').setup({
       ---@type table<string, vim.lsp.Config>
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         -- pyright = {},
         rust_analyzer = {},
         --
@@ -678,7 +680,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'enter',
+        preset = 'default',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -688,6 +690,7 @@ require('lazy').setup({
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
+        blink_cmp,
       },
 
       completion = {
@@ -768,41 +771,49 @@ require('lazy').setup({
     opts = { signs = false },
   },
 
-  { -- Collection of various small independent plugins/modules
-    'nvim-mini/mini.nvim',
-    config = function()
-      -- Better Around/Inside textobjects
-      --
-      -- Examples:
-      --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-      --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
-
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
-
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function() return '%2l:%-2v' end
-
-      -- ... and there is more!
-      --  Check out: https://github.com/nvim-mini/mini.nvim
-    end,
+  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
   },
+
+  --   { -- Collection of various small independent plugins/modules
+  --     'nvim-mini/mini.nvim',
+  --     config = function()
+  --       -- Better Around/Inside textobjects
+  --       --
+  --       -- Examples:
+  --       --  - va)  - [V]isually select [A]round [)]paren
+  --       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+  --       --  - ci'  - [C]hange [I]nside [']quote
+  --       require('mini.ai').setup { n_lines = 500 }
+  --
+  --       -- Add/delete/replace surroundings (brackets, quotes, etc.)
+  --       --
+  --       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+  --       -- - sd'   - [S]urround [D]elete [']quotes
+  --       -- - sr)'  - [S]urround [R]eplace [)] [']
+  --       require('mini.surround').setup()
+  --
+  --       -- Simple and easy statusline.
+  --       --  You could remove this setup call if you don't like it,
+  --       --  and try some other statusline plugin
+  --       local statusline = require 'mini.statusline'
+  --       -- set use_icons to true if you have a Nerd Font
+  --       statusline.setup { use_icons = vim.g.have_nerd_font }
+  --
+  --       -- You can configure sections in the statusline by overriding their
+  --       -- default behavior. For example, here we set the section for
+  --       -- cursor location to LINE:COLUMN
+  --       ---@diagnostic disable-next-line: duplicate-set-field
+  --       statusline.section_location = function() return '%2l:%-2v' end
+  --
+  --       -- ... and there is more!
+  --       --  Check out: https://github.com/nvim-mini/mini.nvim
+  --     end,
+  --   },
 
   {
     'amrbashir/nvim-docs-view',
@@ -821,7 +832,7 @@ require('lazy').setup({
     branch = 'main',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
-      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust' }
+      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust', 'go' }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)

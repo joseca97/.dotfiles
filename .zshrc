@@ -104,11 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 alias hypr-config="vim /home/jc/.config/hypr/hyprland.conf"
 alias hypr-config-paper="vim /home/jc/.config/hypr/hyprpaper.conf"
 alias wb-config="vim /home/jc/.config/waybar"
+alias hypr-temp="hyprctl hyprsunset temperature"
 
 alias vim-config="vim /home/jc/.config/nvim/"
 
