@@ -87,6 +87,11 @@ vim.o.confirm = true
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+vim.keymap.set({ 'i', 'c' }, '<A-`>', '[', { noremap = true })
+vim.keymap.set({ 'i', 'c' }, '<A-+>', ']', { noremap = true })
+vim.keymap.set({ 'i', 'c' }, '<A-´>', '{', { noremap = true })
+vim.keymap.set({ 'i', 'c' }, '<A-ç>', '}', { noremap = true })
+
 -- Diagnostic Config & Keymaps
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config {
@@ -130,6 +135,8 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.api.nvim_command [[ autocmd ModeChanged * lua require('luasnip').unlink_current() ]]
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -532,6 +539,8 @@ require('lazy').setup({
 
         stylua = {}, -- Used to format Lua code
 
+        protols = {},
+
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
           on_init = function(client)
@@ -557,7 +566,11 @@ require('lazy').setup({
             })
           end,
           settings = {
-            Lua = {},
+            Lua = {
+              completion = {
+                autoCallSnippet = 'None',
+              },
+            },
           },
         },
       }
@@ -616,6 +629,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         rust = { 'rustfmt' },
+        -- sql = { 'sql_formatter' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -719,27 +733,27 @@ require('lazy').setup({
     },
   },
 
-  --  { -- You can easily change to a different colorscheme.
-  --    -- Change the name of the colorscheme plugin below, and then
-  --    -- change the command in the config to whatever the name of that colorscheme is.
-  --    --
-  --    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  --    'folke/tokyonight.nvim',
-  --    priority = 1000, -- Make sure to load this before all the other start plugins.
-  --    config = function()
-  --      ---@diagnostic disable-next-line: missing-fields
-  --      require('tokyonight').setup {
-  --        styles = {
-  --          comments = { italic = false }, -- Disable italics in comments
-  --        },
-  --      }
+  -- { -- You can easily change to a different colorscheme.
+  --   -- Change the name of the colorscheme plugin below, and then
+  --   -- change the command in the config to whatever the name of that colorscheme is.
+  --   --
+  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     require('tokyonight').setup {
+  --       styles = {
+  --         comments = { italic = false }, -- Disable italics in comments
+  --       },
+  --     }
   --
-  --      -- Load the colorscheme here.
-  --      -- Like many other themes, this one has different styles, and you could load
-  --      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  --      vim.cmd.colorscheme 'tokyonight-night'
-  --    end,
-  --  },
+  --     -- Load the colorscheme here.
+  --     -- Like many other themes, this one has different styles, and you could load
+  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  --     vim.cmd.colorscheme 'tokyonight-night'
+  --   end,
+  -- },
   {
     'catppuccin/nvim',
     lazy = false, -- IMPORTANT: Ensures the theme loads immediately
@@ -751,13 +765,29 @@ require('lazy').setup({
     end,
   },
 
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   lazy = false,
+  --   name = 'kanagawa',
+  --   priority = 100,
+  --   config = function() vim.cmd.colorscheme 'kanagawa-dragon' end,
+  -- },
+
   {
     'nvim-tree/nvim-tree.lua',
     version = '*',
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- For icons in the tree
     },
-    config = function() require('nvim-tree').setup {} end,
+    config = function()
+      require('nvim-tree').setup {
+        actions = {
+          open_file = {
+            quit_on_open = true,
+          },
+        },
+      }
+    end,
   },
 
   -- Highlight todo, notes, etc in comments

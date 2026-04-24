@@ -6,9 +6,7 @@
 	"position": "top",
 
 	"modules-left": [
-		"sway/workspaces",
-		"custom/right-arrow-dark",
-		"custom/power",
+		"hyprland/workspaces",
 		"custom/right-arrow-dark",
 		"cffi/mediaplayer"
 	],
@@ -40,7 +38,10 @@
 		"disk",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"tray"
+		"bluetooth",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"custom/power"
 	],
 
 	"custom/left-arrow-dark": {
@@ -58,6 +59,12 @@
 	"custom/right-arrow-light": {
 		"format": "",
 		"tooltip": false
+	},
+
+	"bluetooth": {
+		"format": "",
+    	"format-connected": "",
+    	"on-click": "blueman-manager"
 	},
 
 	"cffi/mediaplayer": {
@@ -113,11 +120,11 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": "Mem {}%"
+		"format": " {}%"
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "CPU {usage:2}%"
+		"format": " {usage:2}%"
 	},
 	"battery": {
 		"states": {
@@ -136,7 +143,7 @@
 	},
 	"disk": {
 		"interval": 5,
-		"format": "Disk {percentage_used:2}%",
+		"format": "󰗮 {percentage_used:2}%",
 		"path": "/"
 	},
 	"tray": {
