@@ -48,7 +48,12 @@ return {
 
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information
-      handlers = {},
+      handlers = {
+        function(config) require('mason-nvim-dap').default_setup(config) end,
+        delve = function(config)
+          -- Leave this empty so dap-go takes over
+        end,
+      },
 
       -- You'll need to check that you have the required things installed
       -- online, please don't ask me how to install them :)
@@ -101,9 +106,25 @@ return {
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+        -- On Arch, using the system dlv is often more stable than the Mason one
+        path = 'dlv',
         detached = vim.fn.has 'win32' == 0,
+        -- Higher timeout for Gin apps (they can be slow to compile)
+        initialize_timeout_sec = 20,
+        -- Add build flags to disable optimizations so variables don't disappear
+        build_flags = "-gcflags='all=-N -l'",
+      },
+      dap_configurations = {
+        {
+          type = 'go',
+          name = 'Debug main',
+          request = 'launch',
+          program = function()
+            local workspace = vim.fn.getcwd()
+            local project_name = vim.fn.fnamemodify(workspace, ':t')
+            return workspace .. '/cmd/' .. project_name .. '/main.go'
+          end,
+        },
       },
     }
   end,

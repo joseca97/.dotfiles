@@ -215,6 +215,21 @@ require('lazy').setup({
     },
   },
 
+  {
+    'mistweaverco/kulala.nvim',
+    keys = {
+      { '<leader>Rs', desc = 'Send request' },
+      { '<leader>Ra', desc = 'Send all requests' },
+      { '<leader>Rb', desc = 'Open scratchpad' },
+    },
+    ft = { 'http', 'rest' },
+    opts = {
+      global_keymaps = true,
+      global_keymaps_prefix = '<leader>R',
+      kulala_keymaps_prefix = '',
+    },
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -530,6 +545,7 @@ require('lazy').setup({
         gopls = {},
         -- pyright = {},
         rust_analyzer = {},
+        clangd = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
@@ -569,6 +585,14 @@ require('lazy').setup({
             Lua = {
               completion = {
                 autoCallSnippet = 'None',
+              },
+              diagnostics = {
+                globals = { 'hl' },
+              },
+              workspace = {
+                library = {
+                  '/usr/share/hypr/stubs',
+                },
               },
             },
           },
@@ -629,12 +653,19 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         rust = { 'rustfmt' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
         -- sql = { 'sql_formatter' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        ['clang-format'] = {
+          prepend_args = { '--style=Google' },
+        },
       },
     },
   },
@@ -850,9 +881,21 @@ require('lazy').setup({
     lazy = true,
     cmd = 'DocsViewToggle',
     opts = {
-      position = 'bottom',
-      height = 10,
+      position = 'right',
+      width = 60,
     },
+  },
+
+  {
+    'kylechui/nvim-surround',
+    version = '^4.0.0', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    -- Optional: See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
+    -- config = function()
+    --     require("nvim-surround").setup({
+    --         -- Put your configuration here
+    --     })
+    -- end
   },
 
   { -- Highlight, edit, and navigate code
