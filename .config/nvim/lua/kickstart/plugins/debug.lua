@@ -100,9 +100,33 @@ return {
     -- end
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
+    -- Install golang specific config
+    -- require('dap-go').setup {
+    --   delve = {
+    --     -- On Arch, using the system dlv is often more stable than the Mason one
+    --     path = 'dlv',
+    --     detached = vim.fn.has 'win32' == 0,
+    --     -- Higher timeout for Gin apps (they can be slow to compile)
+    --     initialize_timeout_sec = 20,
+    --     -- Add build flags to disable optimizations so variables don't disappear
+    --     build_flags = "-gcflags='all=-N -l'",
+    --   },
+    --   -- dap_configurations = {
+    --   --   {
+    --   --     type = 'go',
+    --   --     name = 'Debug main',
+    --   --     request = 'launch',
+    --   --     program = function()
+    --   --       local workspace = vim.fn.getcwd()
+    --   --       local project_name = vim.fn.fnamemodify(workspace, ':t')
+    --   --       return workspace .. '/cmd/' .. project_name .. '/main.go'
+    --   --     end,
+    --   --   },
+    --   -- },
+    -- }
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
@@ -111,21 +135,45 @@ return {
         detached = vim.fn.has 'win32' == 0,
         -- Higher timeout for Gin apps (they can be slow to compile)
         initialize_timeout_sec = 20,
-        -- Add build flags to disable optimizations so variables don't disappear
-        build_flags = "-gcflags='all=-N -l'",
       },
       dap_configurations = {
         {
           type = 'go',
-          name = 'Debug main',
+          name = 'Debug Project Main',
           request = 'launch',
           program = function()
             local workspace = vim.fn.getcwd()
             local project_name = vim.fn.fnamemodify(workspace, ':t')
-            return workspace .. '/cmd/' .. project_name .. '/main.go'
+            -- We pass the directory path, not the file itself.
+            -- Delve automatically looks for main.go inside it.
+            return workspace .. '/cmd/' .. project_name
           end,
+          args = function()
+            local input = vim.fn.input('Arguments: ', '-urls=https://go.dev')
+            -- Split the input string into a table of arguments
+            return vim.split(input, ' ')
+          end,
+          outputMode = 'remote',
         },
       },
     }
+
+    local dap = require 'dap'
+    if dap.configurations.go then
+      -- Find our config in the list
+      local custom_config_idx = nil
+      for idx, config in ipairs(dap.configurations.go) do
+        if config.name == 'Debug Project Main' then
+          custom_config_idx = idx
+          break
+        end
+      end
+
+      -- If found, remove it from its current spot and insert it at index 1
+      if custom_config_idx then
+        local custom_config = table.remove(dap.configurations.go, custom_config_idx)
+        table.insert(dap.configurations.go, 1, custom_config)
+      end
+    end
   end,
 }
